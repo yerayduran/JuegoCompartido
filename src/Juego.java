@@ -5,6 +5,7 @@ import java.util.Scanner;
  * Esqueleto para la Misión 1 (UD1-UD3).
  * VUESTRO TRABAJO es rellenar todos los TODO
  */
+
 public class Juego {
 
     // --- NÚCLEO: Definición de Datos (FASE 1) ---
