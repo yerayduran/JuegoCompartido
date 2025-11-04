@@ -1,15 +1,6 @@
 import java.util.Scanner;
 
-/**
- * Clase principal del juego "Tu Propia Aventura".
- * Esqueleto para la Misión 1 (UD1-UD3).
- * VUESTRO TRABAJO es rellenar todos los TODO
- */
-
 public class Juego {
-
-
-
 
 
     private static String descripcionJuego = "Estabas cagando en el baño de un mercadona random, tenias mucho sueño porque habias estado toda la noche jugando al call of duty, de repente notas cómo tus parpados empiezan a cerrarse. Al final te quedas dormido por viciar toda la noche y resulta que, cuando te despiertas, en vez de estar sentado en aquel váter estas en una especie de sillón en una sala totalmente a oscuras. Cuando te levantas, se te enciende la sala en la que estás. Ya no estás en aquel baño cutre del mercadona, ahora estabas en un lugar totalmente desconocido. ";
@@ -43,10 +34,13 @@ public class Juego {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean jugando = true;
+        int comandos = 0;
         char adelante = 'W';
         char atras = 'S';
         char derecha = 'D';
         char izquierda = 'A';
+        String salidaDeJuego = "salir";
+        char recogerObjeto = 'E';
 
         System.out.println("¡Bienvenido a 'TU PROPIA AVENTURA'!");
         System.out.println("------------------------------------------");
@@ -62,14 +56,44 @@ public class Juego {
 
             // TODO 3: Leer el comando del usuario por teclado
             System.out.print("\n> ");
-            //String comando = ...;
+            comandos = Integer.parseChar(scanner.nextLine());
+            for(i = 0; i <= comandos; i++){
+                char valorDeLetra = (char) comandos;
+            }
 
-            /*
-            TODO 4: Crear un 'switch' o una estructura 'if-else if'
-             para procesar el 'comando' del usuario.
-             Debe gestionar como mínimo: "ayuda", "mirar", "inventario",
-             "ir derecha", "ir izquierda", "coger [objeto]" y "salir".
-             */
+
+            switch (comandos) {
+                case 'W': {
+                    valorDeLetra = M;
+                    break;
+                }
+                case 'D': {
+                    valorDeLetra = D;
+                    break;
+                }
+                case 'C': {
+                    valorDeLetra = C;
+                    break;
+                }
+                case 'L': {
+                    valorDeLetra = L;
+                    break;
+                }
+                case 'X': {
+                    valorDeLetra = X;
+                    break;
+                }
+                case 'V': {
+                    valorDeLetra = V;
+                    break;
+                }
+                case 'I': {
+                    valorDeLetra = I;
+                    break;
+                }
+            }
+
+
 
 
         }
