@@ -11,15 +11,13 @@ public class Juego {
     // --- NÚCLEO: Definición de Datos (FASE 1) ---
     // Esta parte os la damos HECHA. Es el "contrato" del núcleo.
 
-    private static String descripcionJuego = "No sabes qué ha pasado. Justo cuando terminabas las clases te quedaste el último como siempre recogiendo tus cosas. " +
-            "Pero algo pasó. Lo último que recuerdas es que sentiste mucho frío y todo se volvió oscuro. Ahora estás en tu clase, pero es de noche y el instituto está cerrado." +
-            "¿Nadie te ha visto? ¿Por qué las limpiadoras no te han despertado?";
+    private static String descripcionJuego = "Estabas cagando en el baño de un mercadona random, tenias mucho sueño porque habias estado toda la noche jugando al call of duty, de repente notas cómo tus parpados empiezan a cerrarse. Al final te quedas dormido por viciar toda la noche y resulta que, cuando te despiertas, en vez de estar sentado en aquel váter estas en una especie de sillón en una sala totalmente a oscuras. Cuando te levantas, se te enciende la sala en la que estás. Ya no estás en aquel baño cutre del mercadona, ahora estabas en un lugar totalmente desconocido. ";
 
     // El mapa de habitaciones.
     // TODO: (Skin) ¡Rellenad esto con vuestras descripciones!
     private static String[] habitaciones = {
-            "Estás en tu aula, el aula 103. Hay una puerta a la DERECHA.",  // Posición 0
-            "Estás en el pasillo principal. Hay puertas a la DERECHA y a la IZQUIDA.", // Posición 1
+            "Se enciende una luz de una lampara muy vieja colgando del techo, apenas tenías visibilidad, pero lo unico que veias era una puerta con una luz que parecia que venia desde la habitacion o lo que fuera que estuviese tras esa puerta. ",  // Posición 0
+            "Decidiste cruzar aquella puerta para ver qué te encontrarias. Por la cara ahora estas en una habitacion cuadrada, pequeña, un poco vieja, pero con algunos objetos que podrian servirte en un futuro. Estas un poco empanado, pero se te ocurre la gran idea de enumerar las habitaciones que te vas a ir encontrando. Ahora te encuentras en la habitacion 1 y la anterior era la 0. Ahora hay una puerta frente a ti, pero no la vas a cruzar porque ves unos objetos alrededor de ti y decides mirar a ver si encuentras algo de info para saber en donde leches estás.", // Posición 1
             "Estás en el aula 105. Hay una puerta a la IZQUIERDA y has visto una 'llave' en una mesa.", // Posición 2
             // Borra las habitaciones y escribe las tuyas
     };
