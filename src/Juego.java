@@ -8,8 +8,9 @@ import java.util.Scanner;
 
 public class Juego {
 
-    // --- NÚCLEO: Definición de Datos (FASE 1) ---
-    // Esta parte os la damos HECHA. Es el "contrato" del núcleo.
+
+
+
 
     private static String descripcionJuego = "No sabes qué ha pasado. Justo cuando terminabas las clases te quedaste el último como siempre recogiendo tus cosas. " +
             "Pero algo pasó. Lo último que recuerdas es que sentiste mucho frío y todo se volvió oscuro. Ahora estás en tu clase, pero es de noche y el instituto está cerrado." +
@@ -42,9 +43,12 @@ public class Juego {
 
 
     public static void main(String[] args) {
-        // Puedes utilizar la clase MiEntradaSalida, que viviría en el paquete io
         Scanner scanner = new Scanner(System.in);
         boolean jugando = true;
+        char adelante = 'W';
+        char atras = 'S';
+        char derecha = 'D';
+        char izquierda = 'A';
 
         System.out.println("¡Bienvenido a 'TU PROPIA AVENTURA'!");
         System.out.println("------------------------------------------");
