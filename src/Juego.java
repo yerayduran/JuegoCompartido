@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Juego {
 
 
-    private static String descripcionJuego = "Estabas cagando en el baño de un mercadona random, tenias mucho sueño porque habias estado toda la noche jugando al call of duty, de repente notas cómo tus parpados empiezan a cerrarse. Al final te quedas dormido por viciar toda la noche y resulta que, cuando te despiertas, en vez de estar sentado en aquel váter estas en una especie de sillón en una sala totalmente a oscuras. Cuando te levantas, se te enciende la sala en la que estás. Ya no estás en aquel baño cutre del mercadona, ahora estabas en un lugar totalmente desconocido. ";
+    private static String descripcionJuego = "Estabas cagando en el baño de un Mercadona random, tenias mucho sueño porque habias estado toda la noche jugando al call of duty, de repente notas cómo tus parpados empiezan a cerrarse. Al final te quedas dormido por viciar toda la noche y resulta que, cuando te despiertas, en vez de estar sentado en aquel váter estas en una especie de sillón en una sala totalmente a oscuras. Cuando te levantas, se te enciende la sala en la que estás. Ya no estás en aquel baño cutre del mercadona, ahora estabas en un lugar totalmente desconocido. ";
 
     // El mapa de habitaciones.
     // TODO: (Skin) ¡Rellenad esto con vuestras descripciones!
@@ -23,10 +23,10 @@ public class Juego {
     };
 
     // El inventario del jugador. Tamaño fijo.
-    private static String[] inventario = new String[5];
+    private static String[] inventario = new String[10];
 
     // Variable que guarda la posición actual del jugador
-    private static int habitacionActual = 0; // Empezamos en la primera habitación
+    private static int habitacionActual = 0;// Empezamos en la primera habitación
 
     // --- FIN DE LA DEFINICIÓN DE DATOS ---
 
@@ -34,13 +34,6 @@ public class Juego {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean jugando = true;
-        int comandos = 0;
-        char adelante = 'W';
-        char atras = 'S';
-        char derecha = 'D';
-        char izquierda = 'A';
-        String salidaDeJuego = "salir";
-        char recogerObjeto = 'E';
 
         System.out.println("¡Bienvenido a 'TU PROPIA AVENTURA'!");
         System.out.println("------------------------------------------");
@@ -51,62 +44,36 @@ public class Juego {
         // Pista: System.out.println(habitaciones[...]);
 
 
-        // TODO 2: Iniciar el bucle principal del juego (game loop)
         while (jugando) {
+            System.out.print("\nAcciones disponibles: [W] Avanzar | [S] Retroceder | [A] Mirar Izquierda | [D] Mirar Derecha | [E] Recoger | [I] Inventario | [P] Ver Objeto Recogido\n> ");
+            String entrada = scanner.nextLine().toUpperCase();
 
-            // TODO 3: Leer el comando del usuario por teclado
-            System.out.print("\n> ");
-            comandos = Integer.parseChar(scanner.nextLine());
-            for(i = 0; i <= comandos; i++){
-                char valorDeLetra = (char) comandos;
+            switch (entrada) {
+                case "W":
+                    avanzar();
+                    break;
+                case "S":
+                    retroceder();
+                    break;
+                case "A":
+                    mostrarEntorno("izquierda");
+                    break;
+                case "D":
+                    mostrarEntorno("derecha");
+                    break;
+                case "E":
+                    recoger();
+                    break;
+                case "I":
+                    mostrarInventario();
+                    break;
+                case "P":
+                    abrirPista();
+                    break;
+                default:
+                    System.out.println("Comando no reconocido. Usa W, S, A, D, E, I o P.");
             }
-
-
-            switch (comandos) {
-                case 'W': {
-                    valorDeLetra = M;
-                    break;
-                }
-                case 'D': {
-                    valorDeLetra = D;
-                    break;
-                }
-                case 'C': {
-                    valorDeLetra = C;
-                    break;
-                }
-                case 'L': {
-                    valorDeLetra = L;
-                    break;
-                }
-                case 'X': {
-                    valorDeLetra = X;
-                    break;
-                }
-                case 'V': {
-                    valorDeLetra = V;
-                    break;
-                }
-                case 'I': {
-                    valorDeLetra = I;
-                    break;
-                }
-            }
-
-
-
-
         }
-
-        System.out.println("¡Gracias por jugar!");
         scanner.close();
     }
-
-    /*
-    (Opcional - Buenas Prácticas)
-    Si el 'switch' se vuelve muy grande, podéis crear métodos privados
-    para organizar el código, por ejemplo:
-    private static void procesarComandoCoger(String comando) { ... }
-    private static void mostrarInfoHabitacion() { ... }
-    */
 }
