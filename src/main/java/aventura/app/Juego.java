@@ -27,7 +27,9 @@ public class Juego {
     // El inventario del jugador. Tamaño fijo.
     private static String[] inventario = new String[10];
     private static int habitacionActual = 0;
-    private static final int habitacionSalida = 5;
+    private static final int habitacionFinal = 5;
+    private static final String codigoSalida = "5731";
+
 
 
     private static void avanzar() {  //Funcion de W para pasar a la siguiente habitación
