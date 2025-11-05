@@ -55,58 +55,37 @@ public class Juego {
         while (jugando) {
 
             // TODO 3: Leer el comando del usuario por teclado
-            System.out.print("\n> ");
-            comandos = Integer.parseChar(scanner.nextLine());
-            for(i = 0; i <= comandos; i++){
-                char valorDeLetra = (char) comandos;
-            }
+            while (jugando) {
+                System.out.print("\nAcciones disponibles: [W] Avanzar | [S] Retroceder | [A] Mirar Izquierda | [D] Mirar Derecha | [E] Recoger | [I] Inventario | [P] Ver Objeto Recogido\n> ");
+                String entrada = scanner.nextLine().toUpperCase();
 
-
-            switch (comandos) {
-                case 'W': {
-                    valorDeLetra = M;
-                    break;
-                }
-                case 'D': {
-                    valorDeLetra = D;
-                    break;
-                }
-                case 'C': {
-                    valorDeLetra = C;
-                    break;
-                }
-                case 'L': {
-                    valorDeLetra = L;
-                    break;
-                }
-                case 'X': {
-                    valorDeLetra = X;
-                    break;
-                }
-                case 'V': {
-                    valorDeLetra = V;
-                    break;
-                }
-                case 'I': {
-                    valorDeLetra = I;
-                    break;
+                switch (entrada) {
+                    case "W":
+                        avanzar();
+                        break;
+                    case "S":
+                        retroceder();
+                        break;
+                    case "A":
+                        mostrarEntorno("izquierda");
+                        break;
+                    case "D":
+                        mostrarEntorno("derecha");
+                        break;
+                    case "E":
+                        recoger();
+                        break;
+                    case "I":
+                        mostrarInventario();
+                        break;
+                    case "P":
+                        abrirPista();
+                        break;
+                    default:
+                        System.out.println("Comando no reconocido. Usa W, S, A, D, E, I o P.");
                 }
             }
-
-
-
-
+            scanner.close();
         }
-
-        System.out.println("¡Gracias por jugar!");
-        scanner.close();
     }
-
-    /*
-    (Opcional - Buenas Prácticas)
-    Si el 'switch' se vuelve muy grande, podéis crear métodos privados
-    para organizar el código, por ejemplo:
-    private static void procesarComandoCoger(String comando) { ... }
-    private static void mostrarInfoHabitacion() { ... }
-    */
 }
