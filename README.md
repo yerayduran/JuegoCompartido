@@ -8,7 +8,7 @@
 
 ## 📖 Nuestra Historia (El "Skin")
 
-**Temática del Juego:** Escape / Misterio en el Instituto.
+**Temática del aventura.app.Juego:** Escape / Misterio en el Instituto.
 
 **Premisa:**
 > No sabes qué ha pasado. Justo cuando terminabas las clases te quedaste el último como siempre recogiendo tus cosas. Pero algo pasó. Lo último que recuerdas es que sentiste mucho frío y todo se volvió oscuro. Ahora estás en tu clase, pero es de noche y el instituto está cerrado. ¿Nadie te ha visto? ¿Por qué las limpiadoras no te han despertado?
