@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Juego {
 
 
-    private static String descripcionJuego = "Estabas cagando en el baño de un Mercadona random, tenias mucho sueño porque habias estado toda la noche jugando al call of duty, de repente notas cómo tus parpados empiezan a cerrarse. Al final te quedas dormido por viciar toda la noche y resulta que, cuando te despiertas, en vez de estar sentado en aquel váter estas en una especie de sillón en una sala totalmente a oscuras. Cuando te levantas, se te enciende la sala en la que estás. Ya no estás en aquel baño cutre del mercadona, ahora estabas en un lugar totalmente desconocido. ";
+    private static String descripcionJuego = "Estabas cagando en el baño de un mercadona random, tenias mucho sueño porque habias estado toda la noche jugando al call of duty, de repente notas cómo tus parpados empiezan a cerrarse. Al final te quedas dormido por viciar toda la noche y resulta que, cuando te despiertas, en vez de estar sentado en aquel váter estas en una especie de sillón en una sala totalmente a oscuras. Cuando te levantas, se te enciende la sala en la que estás. Ya no estás en aquel baño cutre del mercadona, ahora estabas en un lugar totalmente desconocido. ";
 
     // El mapa de habitaciones.
     // TODO: (Skin) ¡Rellenad esto con vuestras descripciones!
@@ -73,7 +73,7 @@ public class Juego {
                 default:
                     System.out.println("Comando no reconocido. Usa W, S, A, D, E, I o P.");
             }
+            scanner.close();
         }
-        scanner.close();
     }
 }
