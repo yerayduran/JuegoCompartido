@@ -18,11 +18,8 @@ public class Juego {
 
     // Los objetos que hay en cada habitación.
     // TODO: (Skin) Rellenad esto con vuestros objetos
-    private static String[][] objetosMapa = {
-            {null, null},           // Objetos en Habitación 0
-            {null, null},           // Objetos en Habitación 1
-            {"llave", "nota"},      // Objetos en Habitación 2
-    };
+    private static String[][] objetosMapaIzquierda = {{null, "Pista 1", "Triangulo"},{null, "Pista 3", null}, {};
+    private static String[][] objetosMapaDerecha = {null, };
 
     // El inventario del jugador. Tamaño fijo.
     private static String[] inventario = new String[10];
@@ -57,6 +54,20 @@ public class Juego {
             System.out.println(habitaciones[habitacionActual]);
         } else { //Si estas en la habitacion 1 te indica que estas en el principio y no retrocedes en la habitacion 1
             System.out.println("Ya estás en la habitación inicial.");
+        }
+    }
+
+    private static void mostrarEntorno(String direccion) { //Funcion para ver tus dirrecciones izquierda y derecha, y mira si tiene algun objeto en ese lado de la habitacion
+        String objeto = null;
+        if (direccion.equals("izquierda") && habitacionActual < objetosMapaIzquierda.length) {
+            objeto = objetosMapaIzquierda[habitacionActual];
+        } else if (direccion.equals("derecha") && habitacionActual < objetosMapaDerecha.length) {
+            objeto = objetosMapaDerecha[habitacionActual];
+        }
+        if (objeto != null) {
+            System.out.println("Miras hacia la " + direccion + " y ves: " + objeto);
+        } else {
+            System.out.println("No hay nada interesante hacia la " + direccion + ".");
         }
     }
 
