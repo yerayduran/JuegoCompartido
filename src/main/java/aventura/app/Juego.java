@@ -1,3 +1,5 @@
+package aventura.app;
+
 import java.util.Scanner;
 
 public class Juego {
