@@ -18,58 +18,11 @@ public class Juego {
 
     // Los objetos que hay en cada habitación.
     // TODO: (Skin) Rellenad esto con vuestros objetos
-    private static String[][] objetosMapaIzquierda = {{null, "Pista 1", "Triangulo"},{null, "Pista 3", null}, {};
-    private static String[][] objetosMapaDerecha = {null, };
+
 
     // El inventario del jugador. Tamaño fijo.
     private static String[] inventario = new String[10];
-    private static int habitacionActual = 0;
-    private static final int habitacionFinal = 5;
-    private static final String codigoSalida = "5731";
 
-
-
-    private static void avanzar() {  //Funcion de W para pasar a la siguiente habitación
-        if (habitacionActual < habitacionFinal) {
-            habitacionActual++;
-            System.out.println("Avanzas a la habitación " + habitacionActual);
-            System.out.println(habitaciones[habitacionActual]);
-        } else {  //Si llegas a la ultima habitación y intentas pasar te solicitara un codigo para salir la cual el codigo se debe de averiguar por pistas pasadas
-            System.out.println("Estás en la última habitación. Introduce el código para escapar:");
-            Scanner scanner = new Scanner(System.in);
-            String codigo = scanner.nextLine();
-            if (codigo.equals(codigoSalida)) {
-                System.out.println("¡Código correcto! Has escapado del juego.");
-                System.exit(0);
-            } else {
-                System.out.println("Código incorrecto. Intenta de nuevo.");
-            }
-        }
-    }
-
-    private static void retroceder() {  //Funcion de la S para ir a una habitacion anterior
-        if (habitacionActual > 0) {
-            habitacionActual--;
-            System.out.println("Retrocedes a la habitación " + habitacionActual);
-            System.out.println(habitaciones[habitacionActual]);
-        } else { //Si estas en la habitacion 1 te indica que estas en el principio y no retrocedes en la habitacion 1
-            System.out.println("Ya estás en la habitación inicial.");
-        }
-    }
-
-    private static void mostrarEntorno(String direccion) { //Funcion para ver tus dirrecciones izquierda y derecha, y mira si tiene algun objeto en ese lado de la habitacion
-        String objeto = null;
-        if (direccion.equals("izquierda") && habitacionActual < objetosMapaIzquierda.length) {
-            objeto = objetosMapaIzquierda[habitacionActual];
-        } else if (direccion.equals("derecha") && habitacionActual < objetosMapaDerecha.length) {
-            objeto = objetosMapaDerecha[habitacionActual];
-        }
-        if (objeto != null) {
-            System.out.println("Miras hacia la " + direccion + " y ves: " + objeto);
-        } else {
-            System.out.println("No hay nada interesante hacia la " + direccion + ".");
-        }
-    }
 
 
 
@@ -90,31 +43,6 @@ public class Juego {
             System.out.print("\nAcciones disponibles: [W] Avanzar | [S] Retroceder | [A] Mirar Izquierda | [D] Mirar Derecha | [E] Recoger | [I] Inventario | [P] Ver Objeto Recogido\n> ");
             String entrada = scanner.nextLine().toUpperCase();
 
-            switch (entrada) {
-                case "W":
-                    avanzar();
-                    break;
-                case "S":
-                    retroceder();
-                    break;
-                case "A":
-                    mostrarEntorno("izquierda");
-                    break;
-                case "D":
-                    mostrarEntorno("derecha");
-                    break;
-                case "E":
-                    recoger();
-                    break;
-                case "I":
-                    mostrarInventario();
-                    break;
-                case "P":
-                    abrirPista();
-                    break;
-                default:
-                    System.out.println("Comando no reconocido. Usa W, S, A, D, E, I o P.");
-            }
             scanner.close();
         }
     }
