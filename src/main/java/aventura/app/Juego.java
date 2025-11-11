@@ -1,4 +1,4 @@
-package aventura.app;
+package main.java.aventura.app;
 
 import java.util.Scanner;
 
@@ -28,4 +28,234 @@ public class Juego {
             "LLegas a la quinta habitación, ya estás hasta los huevos de cruzar puertas y coger papeletas con tonterías y no entender nada.\n Ahora estás en la sala de los patitos de goma. Cada vez que pisabas, fuera donde fuese, sonaba un agudísimo pitido que te estaba dejando sordo ya.\n Estas salas ya no tenían apenas decoración, eran como un escenario que estaban construyendo pero que no estaba terminado todavía.\n La puerta la tienes ahora a la derecha...", // Posición 5
             "Oye, esto no se acaba nunca. Estoy cansado ya... A ver, esta sala era... Bueno... Si viese lo que hay sería un detallazo, ¿no?\n Pasan 5 segundos y, en esa sala oscura que no se veía nada, se enciende una luz que estaba parpadeando por su estado deplorable que estaba a su vez\n sobre una puerta. Fíjate que esta puerta está muy simplona, pero no le das importancia, a lo que le das importancia es a un panel\n que tienes al lado de la puerta el cual te deja introducir unos dígitos, en concreto 4, y oye, tienes en posesión (a no ser que sigas siendo el empanado de siempre) cuatro objetos \n con cosas puestas que no sabes si quiera lo que son, pero parece cuadrar con esos papeles."// Posición 6
     };
+
+    // Array con objetos de cada habitación
+    private static String[][] objetosMapa = {
+            {null, null, null},
+            {"Reloj Marcando las 6AM", "Folio con cinco rayas", "Cantidad de cartas en la mano de un juego de brisca"},
+            {"Nota: recuerda este patron (Agua, Circulo, Cartas)", null, null},
+            {"Botas de Agua (Talla 41)", null, null},
+            {null, null, null},
+            {null, null, null},
+            {null, null, null},
+            {null, null, null}
+    };
+
+    // Array con nombres de habitaciones en el mapa 2D
+    private static final String[][] habitacionesMapa = {
+            {null, "Habitacion nº4", "Habitacion nº5"},
+            {"Habitacion nº2", "Habitación nº3", "Habitacion Salida"},
+            {"Habitacion nº1", "Habitacion inicial", null}
+    };
+
+    // El inventario del jugador. Tamaño fijo. Y código de salida.
+    private static final String[] inventario = new String[11];
+
+    // Posición actual del jugador
+    private static int filaActual = 2;
+    private static int columnaActual = 1;
+    private static final String codigoSalida = "4163";
+
+    // Variable para mapear posición a número de habitación
+    private static int habitacionActual = 0;
+
+    private static void mostrarHabitacionActual() {
+        System.out.println("\n========================================");
+        System.out.println("HABITACION ACTUAL: " + nombresHabitaciones[habitacionActual]);
+        System.out.println("========================================");
+        System.out.println(habitaciones[habitacionActual]);
+        System.out.println("========================================\n");
+    }
+
+    private static void mover(String direccionMovimiento) {
+        int nuevaFila = filaActual;
+        int nuevaColumna = columnaActual;
+
+        switch (direccionMovimiento) {
+            case "A": //Ir izquierda
+                nuevaColumna--;
+                break;
+            case "D": //Ir derecha
+                nuevaColumna++;
+                break;
+            case "W": //Ir adelante
+                nuevaFila--;
+                break;
+            case "S": //Ir atrás
+                nuevaFila++;
+                break;
+            default:
+                System.out.println("Dirección no válida.");
+                return;
+        }
+
+        // Bloquear paso directo de (1,1) a (1,2), que es la habSalida
+        if (filaActual == 1 && columnaActual == 1 && nuevaFila == 1 && nuevaColumna == 2) {
+            System.out.println("Por aquí no es...");
+            return;
+        }
+        if (filaActual == 1 && columnaActual == 2 && nuevaFila == 1 && nuevaColumna == 1) {
+            System.out.println("Por aquí no es...");
+            return;
+        }
+        if (filaActual == 2 && columnaActual == 1 && nuevaFila == 1 && nuevaColumna == 1) {
+            System.out.println("Por aquí no es...");
+            return;
+        }
+        if (filaActual == 1 && columnaActual == 1 && nuevaFila == 2 && nuevaColumna == 1) {
+            System.out.println("Por aquí no es...");
+            return;
+        }
+
+        if (nuevaFila >= 0 && nuevaFila < habitacionesMapa.length &&
+                nuevaColumna >= 0 && nuevaColumna < habitacionesMapa[0].length &&
+                habitacionesMapa[nuevaFila][nuevaColumna] != null) {
+
+            filaActual = nuevaFila;
+            columnaActual = nuevaColumna;
+
+            // Actualizar la habitación actual según la posición
+            actualizarHabitacion();
+
+            System.out.println("Te has movido a: " + habitacionesMapa[filaActual][columnaActual]);
+            mostrarHabitacionActual();
+        } else {
+            System.out.println("No puedes moverte por aquí");
+        }
+
+        if (filaActual == 1 && columnaActual == 2) {
+            intentarSalir();
+        }
+    }
+
+    // Función para actualizar qué habitación estamos visitando
+    private static void actualizarHabitacion() {
+        if (filaActual == 2 && columnaActual == 0) {
+            habitacionActual = 1; // Habitación 1
+        } else if (filaActual == 2 && columnaActual == 1) {
+            habitacionActual = 0; // Habitación inicial
+        } else if (filaActual == 1 && columnaActual == 0) {
+            habitacionActual = 2; // Habitación 2
+        } else if (filaActual == 1 && columnaActual == 1) {
+            habitacionActual = 3; // Habitación 3
+        } else if (filaActual == 1 && columnaActual == 2) {
+            habitacionActual = 7; // Habitación salida
+        } else if (filaActual == 0 && columnaActual == 0) {
+            habitacionActual = 4; // Habitación 4
+        } else if (filaActual == 0 && columnaActual == 1) {
+            habitacionActual = 5; // Habitación 5
+        } else if (filaActual == 0 && columnaActual == 2) {
+            habitacionActual = 6; // Habitación 6
+        }
+    }
+
+    // Con esto se puede habilitar la opción de recoger un objeto.
+    private static void recogerObjeto() {
+        String objeto = objetosMapa[habitacionActual][0]; // Primer objeto disponible
+
+        if (objeto == null) {
+            System.out.println("No hay objetos para recoger aquí.");
+            return;
+        }
+
+        añadirAlInventario(objeto);
+
+        // Remover el objeto recogido y desplazar los demás
+        for (int i = 0; i < objetosMapa[habitacionActual].length - 1; i++) {
+            objetosMapa[habitacionActual][i] = objetosMapa[habitacionActual][i + 1];
+        }
+        objetosMapa[habitacionActual][objetosMapa[habitacionActual].length - 1] = null;
+
+        System.out.println("Has recogido: " + objeto);
+    }
+
+    private static void intentarSalir() {
+        if (filaActual == 1 && columnaActual == 2) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Estás en la salida. Introduce el código para escapar:");
+            String entrada = scanner.nextLine();
+            if (entrada.equals(codigoSalida)) {
+                System.out.println("¡Código correcto! Has escapado del juego.");
+                System.exit(0);
+            } else {
+                System.out.println("Código incorrecto. Intenta de nuevo.");
+            }
+        } else {
+            System.out.println("No estás en la salida.");
+        }
+    }
+
+    private static void añadirAlInventario(String objeto) {
+        for (int i = 0; i < inventario.length; i++) {
+            if (inventario[i] == null) {
+                inventario[i] = objeto;
+                return;
+            }
+        }
+        System.out.println("Tu inventario está lleno.");
+    }
+
+    private static void mostrarInventario() {
+        System.out.println("\nInventario:");
+        boolean vacio = true;
+        for (String item : inventario) {
+            if (item != null) {
+                System.out.println("- " + item);
+                vacio = false;
+            }
+        }
+        if (vacio) {
+            System.out.println("(vacío)");
+        }
+    }
+
+    // Esto permite salir cuando quieras.
+    private static void salir() {
+        System.out.println("Hasta luego máquina!");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean jugando = true;
+
+        System.out.println("¡Bienvenido a 'TU PROPIA AVENTURA'!");
+        System.out.println("------------------------------------------");
+        System.out.println(descripcionJuego);
+
+        // Mostrar la habitación inicial
+        mostrarHabitacionActual();
+
+        while (jugando) {
+            System.out.print("\nAcciones disponibles:\n [W] Adelante | [A] Izquierda | [S] Ir atrás | [D] Derecha | [E] Recoger todo | [I] Inventario | [X] Salir \n > ");
+            String comando = scanner.nextLine().toUpperCase();
+
+            switch (comando) {
+                case "A":
+                    mover("A");
+                    break;
+                case "D":
+                    mover("D");
+                    break;
+                case "W":
+                    mover("W");
+                    break;
+                case "S":
+                    mover("S");
+                    break;
+                case "E":
+                    recogerObjeto();
+                    break;
+                case "I":
+                    mostrarInventario();
+                    break;
+                case "X":
+                    salir();
+                    jugando = false;
+                    break;
+                default:
+                    System.out.println("Comando no reconocido.");
+            }
+        }
+        scanner.close();
+    }
 }
