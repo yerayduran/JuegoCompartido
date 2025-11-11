@@ -29,25 +29,3 @@ public class Juego {
             "Oye, esto no se acaba nunca. Estoy cansado ya... A ver, esta sala era... Bueno... Si viese lo que hay sería un detallazo, ¿no?\n Pasan 5 segundos y, en esa sala oscura que no se veía nada, se enciende una luz que estaba parpadeando por su estado deplorable que estaba a su vez\n sobre una puerta. Fíjate que esta puerta está muy simplona, pero no le das importancia, a lo que le das importancia es a un panel\n que tienes al lado de la puerta el cual te deja introducir unos dígitos, en concreto 4, y oye, tienes en posesión (a no ser que sigas siendo el empanado de siempre) cuatro objetos \n con cosas puestas que no sabes si quiera lo que son, pero parece cuadrar con esos papeles."// Posición 6
     };
 }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        boolean jugando = true;
-
-        System.out.println("¡Bienvenido a 'TU PROPIA AVENTURA'!");
-        System.out.println("------------------------------------------");
-
-
-
-        // TODO 1b: Muestra la descripción de la primera habitación
-        // Pista: System.out.println(habitaciones[...]);
-
-
-        while (jugando) {
-            System.out.print("\nAcciones disponibles: [A] Izquierda | [D] Derecha | [E] Recoger | [I] Inventario | [P] Ver Objeto Recogido\n> ");
-            String entrada = scanner.nextLine().toUpperCase();
-
-            scanner.close();
-        }
-    }
-}
