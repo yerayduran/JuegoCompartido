@@ -1,4 +1,4 @@
-package main.java.aventura.app;
+package aventura.app;
 
 import java.util.Scanner;
 
@@ -16,10 +16,76 @@ public class Juego {
             "LLegas a la quinta habitación, ya estás hasta los huevos de cruzar puertas y coger papeletas con tonterías y no entender nada.\n Ahora estás en la sala de los patitos de goma. Cada vez que pisabas, fuera donde fuese, sonaba un agudísimo pitido que te estaba dejando sordo ya.\n Estas salas ya no tenían apenas decoración, eran como un escenario que estaban construyendo pero que no estaba terminado todavía.\n La puerta la tienes ahora a la derecha...", // Posición 5
             "Oye, esto no se acaba nunca. Estoy cansado ya... A ver, esta sala era... Bueno... Si viese lo que hay sería un detallazo, ¿no?\n Pasan 5 segundos y, en esa sala oscura que no se veía nada, se enciende una luz que estaba parpadeando por su estado deplorable que estaba a su vez\n sobre una puerta. Fíjate que esta puerta está muy simplona, pero no le das importancia, a lo que le das importancia es a un panel\n que tienes al lado de la puerta el cual te deja introducir unos dígitos, en concreto 4, y oye, tienes en posesión (a no ser que sigas siendo el empanado de siempre) cuatro papeles \n con cosas puestas que no sabes si quiera lo que son, pero parece cuadrar con esos papeles. Se te enciende una neurona y te acuerdas que al principio\n había una sala a la derecha a la que no habías entrado, y te preguntas\n qué habrá allí"// Posición 6
     };
+    private static String[][] objetosMapa = {
+            {"Nota: recuerda las posiciones (los números de las habitaciones por donde vas pasando) de las salas."},           // Objetos en Habitación 0
+            {"Botas de agua","Llave puerta","🔶" },           // Objetos en Habitación 1
+            {"⬜", "Otra llave"},      // Objetos en Habitación 2
+            {"Tercera llave"},         // Objetos en Habitación 3
+            {"🔵", "Cuarta llave"},    // Objetos habitación 4
+            {"Hermano vaya llavero que tienes", "🔺"},    // Objetos habitación 5
+            {"null"}    // Objetos habitación 6
 
 
     private static final String[][] objetosMapa = {{null, "Reloj Marcando las 6AM", "Botas de Agua (Talla 41)"}, {"Nota: recuerda este patron (Agua, Circulo, Cartas)", "Folio con cinco rayas", null}, {"Cantidad de cartas en la mano de un juego de brisca", null, null}};
     private static final String[][] habitacionesMapa = {{null, "Habitacion nº4", "Habitacion nº5"}, {"Habitacion nº2", "Habitación nº3", "Habitacion Salida"}, {"Habitacion nº1", "Habitacion inicial", null}};
     private static int filaActual = 2;
     private static int columnaActual = 1;
+    };
+    // Los objetos que hay en cada habitación.
+    // TODO: (Skin) Rellenad esto con vuestros objetos
+    private static final int filaInicial = 2;
+    private static final int columnaInicial = 1;
+    private static final String[][] habitacionesMapa = {{"Habitacion Secreta", "Habitacion nº5", "Habitacion nº6"},{"Habitacion nº3","Habitación nº4","Habitacion Salida"}, {"Habitacion nº1", "Habitacion inicial", "Habitacion nº2"}};
+
+
+
+
+
+
+    // El inventario del jugador. Tamaño fijo.
+    private static String[] inventario = new String[10];
+    private static final String codigoSalida = "5731";
+
+
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean jugando = true;
+        System.out.println("\u00a1Bienvenido a 'TU PROPIA AVENTURA'!");
+        System.out.println("------------------------------------------");
+        System.out.println(descripcionJuego);
+
+        while(jugando) {
+            System.out.print("\nAcciones disponibles:\n [W] Adelante | [A] Izquierda | [S] Ir atras | [D] Derecha | [E] Recoger todo | [I] Inventario | [X] Salir \n > ");
+            switch (scanner.nextLine().toUpperCase()) {
+                case "A":
+                    mover("A");
+                    break;
+                case "D":
+                    mover("D");
+                    break;
+                case "W":
+                    mover("W");
+                    break;
+                case "S":
+                    mover("S");
+                    break;
+                case "E":
+                    recogerObjeto();
+                    break;
+                case "I":
+                    mostrarInventario();
+                    break;
+                case "X":
+                    salir();
+                    jugando = false;
+                    break;
+                default:
+                    System.out.println("Comando no reconocido.");
+            }
+        }
+
+        scanner.close();
+    }
 }
