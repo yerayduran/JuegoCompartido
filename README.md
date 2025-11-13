@@ -6,15 +6,15 @@
 
 ---
 
-## 📖 Nuestra Historia (El "Skin")
+## 📖 Nuestra Historia (El Scape Room Hacendado)
 
-**Temática del aventura.app.Juego:** Escape / Misterio en el Instituto.
+**Temática del aventura.app.Juego:** Escape en el Mercadona.
 
 **Premisa:**
-> No sabes qué ha pasado. Justo cuando terminabas las clases te quedaste el último como siempre recogiendo tus cosas. Pero algo pasó. Lo último que recuerdas es que sentiste mucho frío y todo se volvió oscuro. Ahora estás en tu clase, pero es de noche y el instituto está cerrado. ¿Nadie te ha visto? ¿Por qué las limpiadoras no te han despertado?
+> Estabas cagando en el baño de un Mercadona random, tenías mucho sueño porque habías estado toda la noche jugando al call of duty, de repente notas cómo tus parpados empiezan a cerrarse. Al final te quedas dormido por viciar toda\n la noche y resulta que, cuando te despiertas, en vez de estar sentado en aquel váter estas en una especie de sillón en una sala totalmente a oscuras. Cuando te levantas, se te enciende la sala en la que estás. Ya no estás en aquel baño cutre del Mercadona, ahora estabas en un lugar totalmente desconocido.
 
 **Objetivo:**
-Descubrir qué ha pasado y encontrar una forma de salir del instituto.
+Explorar las pistas y encontrar una forma de salir del sitio misterioso.
 
 ---
 

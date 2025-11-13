@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Juego {
 
-    // La historia del principio, la que se muestra nada más empezar
     private static String descripcionJuego = "Estabas cagando en el baño de un Mercadona random, tenías mucho sueño porque habías estado\n toda la noche jugando al call of duty, de repente notas cómo tus parpados empiezan a cerrarse. Al final te quedas dormido por viciar toda\n la noche y resulta que, cuando te despiertas, en vez de estar sentado en aquel váter estas en una especie de sillón\n en una sala totalmente a oscuras. Cuando te levantas, se te enciende la sala en la que estás. Ya no estás en aquel baño cutre del Mercadona,\n ahora estabas en un lugar totalmente desconocido. ";
 
     // Array con los nombres de cada habitación, así sé cuál es cuál
@@ -15,7 +14,7 @@ public class Juego {
             "HABITACION 3",
             "HABITACION 4",
             "HABITACION 5",
-            "HABITACION 6",
+            "HABITACION 6"
     };
 
     // Array con las descripciones de cada habitación, cada una tiene su texto
@@ -33,11 +32,11 @@ public class Juego {
     // Si no hay nada, pongo null
     private static String[][] objetosMapa = {
             {null, null, null},
-            {"Reloj Marcando las 6AM", "Folio con cinco rayas", "Cantidad de cartas en la mano de un juego de brisca"},
+            {"Reloj Marcando las 6AM",null, null},
             {"Botas de Agua (Talla 41)", null, null},
             {"Nota: recuerda este patron (Agua, Circulo, Cartas)", null, null},
-            {null, null, null},
-            {null, null, null},
+            {"Folio con cinco rayas", null, null},
+            {"Cantidad de cartas en la mano de un juego de brisca", null, null},
             {null, null, null},
             {null, null, null}
     };
